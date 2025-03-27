@@ -15,20 +15,27 @@ p{
   font-size: 1.2rem;
 }
 
-/* General Glitch Text */
+/* Body and General Style */
+body {
+    background-color: black;
+    color: #00ff00; /* Neon green text */
+    font-family: "Courier New", monospace;
+    text-align: center;
+}
+
+/* Glitch effect */
 .glitch {
     font-size: 3rem;
     font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
     color: #00ff00;
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #008000;
+    position: relative;
     display: inline-block;
-    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glitch 1s infinite linear alternate;
 }
 
-/* Duplicate layers for RGB shift */
+/* Create multiple layers for glitching */
 .glitch::before,
 .glitch::after {
     content: attr(data-text);
@@ -39,34 +46,53 @@ p{
     opacity: 0.75;
 }
 
-/* Red ghost effect */
+/* Red glitch layer */
 .glitch::before {
     color: red;
     left: -2px;
-    text-shadow: -3px 0 red;
-    animation: glitch-red 0.8s infinite linear alternate;
+    text-shadow: -1px 0 red;
+    animation: glitch-before 0.6s infinite linear alternate-reverse;
 }
 
-/* Blue ghost effect */
+/* Blue glitch layer */
 .glitch::after {
     color: blue;
     left: 2px;
-    text-shadow: 3px 0 blue;
-    animation: glitch-blue 0.8s infinite linear alternate;
+    text-shadow: 1px 0 blue;
+    animation: glitch-after 0.6s infinite linear alternate;
 }
 
-/* Subtle jitter animations */
-@keyframes glitch-red {
-    0% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    100% { transform: translateX(-2px); }
+/* Glitch keyframes */
+@keyframes glitch {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-3px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
-@keyframes glitch-blue {
-    0% { transform: translateX(2px); }
-    50% { transform: translateX(-2px); }
-    100% { transform: translateX(2px); }
+@keyframes glitch-before {
+    0% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(-5px); }
 }
+
+@keyframes glitch-after {
+    0% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
+
 
 
 
