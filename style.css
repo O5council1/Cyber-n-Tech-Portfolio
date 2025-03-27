@@ -24,6 +24,32 @@ body {
     overflow: hidden; /* Hide any parts of the glitch that move outside */
 }
 
+/* Style for the Home button */
+.Home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00ff00; /* Neon Green */
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ff00;
+  transition: 0.3s ease-in-out;
+  margin: 20px 0;
+}
+
+/* Hover effect for the Home button */
+.Home-button:hover {
+  background-color: black;
+  color: #00ff00;
+  box-shadow: 0 0 20px #00ff00;
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+
+
 /* Glitch-In animation for the homepage (entire page) */
 @keyframes glitch-in {
     0% {
