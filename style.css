@@ -1,0 +1,47 @@
+/* Hacker-style dark theme */
+body {
+    background-color: black;
+    color: #00ff00; /* Neon green text */
+    font-family: "Courier New", monospace;
+    text-align: center;
+}
+
+h1{
+  font-size: 2rem;
+  text-shadow: 00 10px #00ff00;
+}
+
+p{
+  font-size: 1.2rem;
+}
+
+/*glitch effect*/
+@keyframes glitch{
+  0% {text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; }
+  50% {text-shadow: -2px -2px #ff0000, 2px 2px #0000ff; }
+  100% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; }
+}
+
+.glitch{
+  animation: glitch 0.5s infinite alternate;
+}
+
+/*matrix style background*/
+@keyframes matrix{
+  0% { background: 0% 0%; }
+  100% { background-size: 100% 100%; }
+}
+
+body{
+  background: black url('https://i.imgur.com/Ca56xi.png') repeat;
+  background-size: cover;
+  animation: matrix 10s linear infinte;
+}
+
+
+
+
+
+
+
+
