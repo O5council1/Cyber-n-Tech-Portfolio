@@ -8,7 +8,7 @@ body {
 
 h1{
   font-size: 2rem;
-  text-shadow: 00 10px #00ff00;
+  text-shadow: 0 0 10px #00ff00;
 }
 
 p{
@@ -63,7 +63,7 @@ p{
 body{
   background: black url('https://i.imgur.com/Ca56xi.png') repeat;
   background-size: cover;
-  animation: matrix 10s linear infinte;
+  animation: matrix 10s linear infinite;
 }
 
 
