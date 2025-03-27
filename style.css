@@ -15,7 +15,7 @@ p{
   font-size: 1.2rem;
 }
 
-/* General Style */
+/* Body and general layout */
 body {
     background-color: black;
     color: #00ff00; /* Neon green text */
@@ -24,7 +24,7 @@ body {
     overflow: hidden; /* Hide any parts of the glitch that move outside */
 }
 
-/* Glitch-In effect for the homepage */
+/* Glitch-In animation for the homepage (entire page) */
 @keyframes glitch-in {
     0% {
         transform: translateX(100vw) skew(10deg);
@@ -46,13 +46,80 @@ body {
     }
 }
 
-/* Apply the glitch-in effect to the body or major elements */
+/* Apply glitch-in to body or major elements */
 body {
     animation: glitch-in 2s forwards;
 }
 
-/* Glitch Text */
+/* Glitch Text effect */
 .glitch {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff00;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: glitch 1s infinite linear alternate;
+}
+
+/* Create multiple layers for glitching */
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.75;
+}
+
+/* Red glitch layer */
+.glitch::before {
+    color: red;
+    left: -2px;
+    text-shadow: -1px 0 red;
+    animation: glitch-before 0.6s infinite linear alternate-reverse;
+}
+
+/* Blue glitch layer */
+.glitch::after {
+    color: blue;
+    left: 2px;
+    text-shadow: 1px 0 blue;
+    animation: glitch-after 0.6s infinite linear alternate;
+}
+
+/* Glitch text keyframes */
+@keyframes glitch {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-3px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes glitch-before {
+    0% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(-5px); }
+}
+
+@keyframes glitch-after {
+    0% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
 
 
 
