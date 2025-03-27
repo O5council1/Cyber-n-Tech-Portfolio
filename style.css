@@ -15,83 +15,45 @@ p{
   font-size: 1.2rem;
 }
 
-/* Body and General Style */
+/* General Style */
 body {
     background-color: black;
     color: #00ff00; /* Neon green text */
     font-family: "Courier New", monospace;
     text-align: center;
+    overflow: hidden; /* Hide any parts of the glitch that move outside */
 }
 
-/* Glitch effect */
-.glitch {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #00ff00;
-    position: relative;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: glitch 1s infinite linear alternate;
-}
-
-/* Create multiple layers for glitching */
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0.75;
-}
-
-/* Red glitch layer */
-.glitch::before {
-    color: red;
-    left: -2px;
-    text-shadow: -1px 0 red;
-    animation: glitch-before 0.6s infinite linear alternate-reverse;
-}
-
-/* Blue glitch layer */
-.glitch::after {
-    color: blue;
-    left: 2px;
-    text-shadow: 1px 0 blue;
-    animation: glitch-after 0.6s infinite linear alternate;
-}
-
-/* Glitch keyframes */
-@keyframes glitch {
+/* Glitch-In effect for the homepage */
+@keyframes glitch-in {
     0% {
-        transform: translateX(0);
+        transform: translateX(100vw) skew(10deg);
+        opacity: 0;
     }
     25% {
-        transform: translateX(-3px);
+        transform: translateX(-10vw) skew(-5deg);
+        opacity: 1;
     }
     50% {
-        transform: translateX(3px);
+        transform: translateX(5vw) skew(0deg);
     }
     75% {
-        transform: translateX(-2px);
+        transform: translateX(-5vw) skew(-3deg);
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(0) skew(0deg);
+        opacity: 1;
     }
 }
 
-@keyframes glitch-before {
-    0% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    100% { transform: translateX(-5px); }
+/* Apply the glitch-in effect to the body or major elements */
+body {
+    animation: glitch-in 2s forwards;
 }
 
-@keyframes glitch-after {
-    0% { transform: translateX(5px); }
-    50% { transform: translateX(-5px); }
-    100% { transform: translateX(5px); }
-}
+/* Glitch Text */
+.glitch {
+
 
 
 
