@@ -48,120 +48,31 @@ body {
   transform: scale(1.1); /* Slight zoom effect */
 }
 
-
-
-/* Glitch-In animation for the homepage (entire page) */
-@keyframes glitch-in {
-    0% {
-        transform: translateX(100vw) skew(10deg);
-        opacity: 0;
-    }
-    25% {
-        transform: translateX(-10vw) skew(-5deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(5vw) skew(0deg);
-    }
-    75% {
-        transform: translateX(-5vw) skew(-3deg);
-    }
-    100% {
-        transform: translateX(0) skew(0deg);
-        opacity: 1;
-    }
+/* Style for the Back to Projects button */
+.Project-type-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff0000; /* Red background */
+  color: white; /* White text */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px #ff0000;
+  transition: 0.3s ease-in-out;
+  margin: 20px 0;
+  text-transform: uppercase;
 }
 
-/* Apply glitch-in to body or major elements */
-body {
-    animation: glitch-in 2s forwards;
+/* Hover effect for the Back to Projects button */
+.Project-type-button:hover {
+  background-color: #000000; /* Black background on hover */
+  color: #ff0000; /* Red text on hover */
+  box-shadow: 0 0 20px #ff0000;
+  transform: scale(1.1); /* Slight zoom effect */
 }
 
-/* Glitch Text effect */
-.glitch {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #00ff00;
-    position: relative;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: glitch 1s infinite linear alternate;
-}
-
-/* Create multiple layers for glitching */
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0.75;
-}
-
-/* Red glitch layer */
-.glitch::before {
-    color: red;
-    left: -2px;
-    text-shadow: -1px 0 red;
-    animation: glitch-before 0.6s infinite linear alternate-reverse;
-}
-
-/* Blue glitch layer */
-.glitch::after {
-    color: blue;
-    left: 2px;
-    text-shadow: 1px 0 blue;
-    animation: glitch-after 0.6s infinite linear alternate;
-}
-
-/* Glitch text keyframes */
-@keyframes glitch {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-3px);
-    }
-    50% {
-        transform: translateX(3px);
-    }
-    75% {
-        transform: translateX(-2px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes glitch-before {
-    0% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    100% { transform: translateX(-5px); }
-}
-
-@keyframes glitch-after {
-    0% { transform: translateX(5px); }
-    50% { transform: translateX(-5px); }
-    100% { transform: translateX(5px); }
-}
-
-
-
-
-
-/*matrix style background*/
-@keyframes matrix{
-  0% { background: 0% 0%; }
-  100% { background-size: 100% 100%; }
-}
-
-body{
-  background: black url('https://i.imgur.com/Ca56xi.png') repeat;
-  background-size: cover;
-  animation: matrix 10s linear infinite;
-}
 
 
 
