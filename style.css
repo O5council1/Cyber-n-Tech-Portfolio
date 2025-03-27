@@ -16,14 +16,42 @@ p{
 }
 
 /*glitch effect*/
-@keyframes glitch{
-  0% {text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; }
-  50% {text-shadow: -2px -2px #ff0000, 2px 2px #0000ff; }
-  100% { text-shadow: 2px 2px #ff0000, -2px -2px #0000ff; }
-}
 
 .glitch{
-  animation: glitch 0.5s infinite alternate;
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    animation: glitch 0.5s infinite alternate;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+
+.glitch::before {
+    color: red;
+    transform: translate(-2px, -2px);
+    animation: glitch 0.8s infinite alternate-reverse;
+}
+
+.glitch::after {
+    color: blue;
+    transform: translate(2px, 2px);
+    animation: glitch 0.8s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { transform: skew(0deg); }
+    25% { transform: skew(-5deg); }
+    50% { transform: skew(5deg); }
+    75% { transform: skew(-2deg); }
+    100% { transform: skew(0deg); }
 }
 
 /*matrix style background*/
