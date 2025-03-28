@@ -44,8 +44,8 @@ body {
 .code-container {
     text-align: left; /* Ensures code remains left-aligned */
     display: inline-block; /* Keeps its width */
-    max-width: 600px;  /* Set a max width */
-    max-height: 300px; /* Set a max height */
+    max-width: 1000px;  /* Set a max width */
+    max-height: 500px; /* Set a max height */
     overflow: auto;     /* Enable scrolling */
     background: #1e1e1e;
     color: #00ff00;
