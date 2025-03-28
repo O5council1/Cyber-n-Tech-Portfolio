@@ -44,8 +44,10 @@ body {
 .code-container {
     text-align: left; /* Ensures code remains left-aligned */
     display: inline-block; /* Keeps its width */
-    min-width: 1000px;  /* Set a min width */
-    min-height: 500px; /* Set a min height */
+    width: 80%;  /* Adjusts width to 80% of the page */
+    max-width: 900px; /* Limits max width */
+    height: auto;  /* Allows it to expand with content */
+    max-height: 500px; /* Adjust this value if needed */
     overflow: auto;     /* Enable scrolling */
     background: #1e1e1e;
     color: #00ff00;
