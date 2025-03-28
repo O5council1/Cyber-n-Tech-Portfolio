@@ -58,6 +58,12 @@ body {
     text-align: left; /* Ensures text is NOT centered */
 }
 
+/* Change the code text color */
+.code-container code {
+    color: #ffffff; /* Change to white or any other color */
+    font-size: 1.2rem;
+}
+
 /* Hover effect for the Home button */
 .Home-button:hover {
   background-color: black;
