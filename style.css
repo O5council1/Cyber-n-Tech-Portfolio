@@ -45,7 +45,7 @@ body {
     text-align: left; /* Ensures code remains left-aligned */
     display: inline-block; /* Keeps its width */
     height: 80%;
-    width: 80%;  /* Adjusts width to 80% of the page */
+    width: 95%;  /* Adjusts width to 80% of the page */
     height: auto;  /* Allows it to expand with content */
     width: auto;
     max-width: 1000px;
