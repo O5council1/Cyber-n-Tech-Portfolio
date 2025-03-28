@@ -58,10 +58,14 @@ body {
     text-align: left; /* Ensures text is NOT centered */
 }
 
+/* Ensure text color is not green */
 .code-container pre,
 .code-container code {
-    color: #ffffff !important; /* Forces text to be white */
+    color: #ffffff !important; /* Forces white text */
     font-size: 1.2rem;
+    display: block;
+    white-space: pre-wrap; /* Prevents horizontal scrolling unless necessary */
+}
 
 /* Hover effect for the Home button */
 .Home-button:hover {
