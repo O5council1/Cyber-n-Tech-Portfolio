@@ -46,6 +46,7 @@ body {
     display: inline-block; /* Keeps its width */
     width: 80%;  /* Adjusts width to 80% of the page */
     height: auto;  /* Allows it to expand with content */
+    max-width: none;
     max-height: 1000px; /* Adjust this value if needed */
     overflow: auto;     /* Enable scrolling */
     background: #1e1e1e;
