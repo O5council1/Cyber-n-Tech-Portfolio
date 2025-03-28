@@ -48,7 +48,7 @@ body {
     width: 80%;  /* Adjusts width to 80% of the page */
     height: auto;  /* Allows it to expand with content */
     width: auto;
-    max-width: 800px;
+    max-width: 1000px;
     max-height: 1000px; /* Adjust this value if needed */
     overflow: auto;     /* Enable scrolling */
     background: #1e1e1e;
