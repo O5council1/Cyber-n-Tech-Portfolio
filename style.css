@@ -45,10 +45,10 @@ body {
     text-align: left; /* Ensures code remains left-aligned */
     display: inline-block; /* Keeps its width */
     height: 80%;
-    width: 95%;  /* Adjusts width to 80% of the page */
+    width: 100%;  /* Adjusts width to 80% of the page */
     height: auto;  /* Allows it to expand with content */
     width: auto;
-    max-width: 1000px;
+    max-width: none;
     max-height: 1000px; /* Adjust this value if needed */
     overflow: auto;     /* Enable scrolling */
     background: #1e1e1e;
