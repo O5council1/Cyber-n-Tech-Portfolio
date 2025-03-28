@@ -1,0 +1,195 @@
+<!DOCTYPE>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber and Tech Portfolio</title>
+    
+    <link rel="stylesheet" href="../../../style.css">  <!-- ✅ Fixed 'href' typo -->
+</head>
+
+
+  
+<body>
+<header>
+    <h1>Welcome To My My first project uploaded here</h1>
+    <p>This is the code to open a csv file that contains all you user and passwords and their respective website then organise it by email name
+      and put it into seperate text files.</p>
+    <hr>
+</header>
+
+  <p>
+    This is probalbly a very inefficient way to do it but whatever don't fix what isn't broken. I guess in the case of code fixing it to make it 
+    better is good but in this case it is not for any production use but i digress.
+  </p>
+
+  <p>
+    Now I pride myself of honesty so i will say I did use AI specifically chat gpt but that was due to me never using 'csv', 'collections' and I have used
+    'os' twice in the past so I went in pretty blind but all's well.
+  </p>
+  
+<pre><code>
+import os
+import csv
+from collections import defaultdict
+
+
+# Create a dictionary to store passwords categorized by email
+email_dict = defaultdict(list)
+
+# Path to the exported CSV file
+Pass_Path = "password.csv file here"
+
+with open(Pass_Path, mode='r', encoding='utf-8') as file:
+    csv_reader = csv.DictReader(file)
+
+    for row in csv_reader:
+        website = row['url']
+        email = row['username']
+        password = row['password']
+
+        # Organize the passwords by email
+        email_dict[email].append({'website': website, 'username': email, 'password': password})
+
+
+for email, websites in email_dict.items():
+
+
+    for entry in websites:  
+        if entry['username']=='email1':
+            with open('email1.txt','a') as file:            
+                    file.write(f" - Website: {entry['website']}, email: {entry['username']}, Password: {entry['password']}\n\n")
+                    
+
+        if entry['username']=='email2':
+            with open('email2.txt','a') as file:       
+                    file.write(f" - Website: {entry['website']}, email: {entry['username']}, Password: {entry['password']}\n\n")
+                    
+
+        if entry['username']=='email3':
+            with open('email3.txt','a') as file:     
+                    file.write(f" - Website: {entry['website']}, email: {entry['username']}, Password: {entry['password']}\n\n")
+                    
+
+        if entry['username']=='email4':
+            with open('email4.txt','a') as file:         
+                    file.write(f" - Website: {entry['website']}, email: {entry['username']}, Password: {entry['password']}\n\n")
+                    
+
+        if entry['username']=='email1' or entry['username']=='email2' or entry['username']=='email3' or entry['username']=='email4':
+            pass
+        else:
+            with open('other.txt','a') as file:        
+                    file.write(f" - Website: {entry['website']}, email: {entry['username']}, Password: {entry['password']}\n")
+                    
+
+     
+
+
+
+
+email1_num = 0
+email2_num = 0
+email3_num = 0
+email4_num = 0
+other_num = 0
+email_counts_in_csv = {}
+
+all_total = 0
+
+
+# Count characters in 'email1.txt'
+with open('email1.txt', 'r') as file:
+    aad = len(file.read())
+
+# Count characters in 'email2.txt'
+with open('email2.txt', 'r') as file:
+    null = len(file.read())
+
+# Count characters in 'email3.txt'
+with open('email3.txt', 'r') as file:
+    aach = len(file.read())
+
+# Count characters in 'email4.txt'
+with open('email4.txt', 'r') as file:
+    adic = len(file.read())
+
+# Count characters in 'other.txt'
+with open('other.txt', 'r') as file:
+    gen = len(file.read())
+
+# Sum the totals
+all_total = email1_num + email2_num + email3_num + email4_num + other_num
+
+with open(Pass_Path, 'r') as file:
+     og = len(file.read())
+
+
+print(f"Total characters from og file: {og}")
+print(f"Total characters across all files: {all_total}")
+
+
+# Step 1: Count emails in the CSV file
+with open(Pass_Path, mode='r', encoding='utf-8') as file:
+    csv_reader = csv.DictReader(file)
+    for row in csv_reader:
+        email = row['username']  # Assuming the 'username' column contains the email
+        if email in email_counts_in_csv:
+            email_counts_in_csv[email] += 1
+        else:
+            email_counts_in_csv[email] = 1
+
+# Print the email counts from the CSV (the original file)
+print("Email counts in the original CSV:")
+for email, count in email_counts_in_csv.items():
+    print(f"{email}: {count}")
+
+# Step 2: Count emails in the text files
+text_files = [
+    'email1.txt',
+    'email2.txt',
+    'email3.txt',
+    'email4.txt',
+    'other.txt'
+]
+
+# Initialize a dictionary to store the counts for each email in each text file
+email_counts_in_text_files = {file: {} for file in text_files}
+
+# Function to count emails in a file
+def count_emails_in_file(file_path):
+    email_counts = {}
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            # Assuming each line contains an email and we are checking the format
+            # You can adjust this based on your file format
+            for email in email_counts_in_csv:  # Check against the emails in the CSV file
+                if email in line:
+                    if email in email_counts:
+                        email_counts[email] += 1
+                    else:
+                        email_counts[email] = 1
+    return email_counts
+
+# Step 3: Process each text file and count occurrences of emails
+for file in text_files:
+    email_counts_in_text_files[file] = count_emails_in_file(file)
+
+# Step 4: Print the counts of each email in the text files and compare with the CSV counts
+for file, email_counts in email_counts_in_text_files.items():
+    print(f"\nEmail counts in {file}:")
+    for email, count in email_counts.items():
+        csv_count = email_counts_in_csv.get(email, 0)  # Get count from CSV or 0 if not found
+        print(f"{email}: {count} (CSV count: {csv_count})")
+        if count != csv_count:
+            print(f"WARNING: The count for {email} does not match between CSV and {file}")
+        else:
+            print(f"The count for {email} matches between CSV and {file}")
+
+</code></pre>
+
+
+
+</body>
+</html>
